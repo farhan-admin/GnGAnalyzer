@@ -1,0 +1,114 @@
+//CRITICAL: Do not edit header names;;;;;;;
+//Template version 5.0
+//Template based on SEG Revision 1.0 May 2002;;;;;;;
+//Start binary header;;;;;;;
+##;Name;Type;Value;Load;Start Byte;End Byte;Description
+bh;JobIdNum;int32;0;1;3201;3204;Job Identification Number
+bh;LineNum;int32;0;1;3205;3208;Line number. For 3-D poststack data, this will typically contain the in-line number.
+bh;ReelNum;int32;0;1;3209;3212;Reel number
+bh;DataTrcNumEnsem;int32;0;1;3213;3214;Number of data traces per ensemble. Mandatory for prestack data
+bh;AuxTrcNumEnsem;int32;0;1;3215;3216;Number of auxiliary traces per ensemble. Mandatory for prestack data
+bh;SampInt;int32;0;1;3217;3218;Sample interval in microseconds (us). Mandatory for all data types
+bh;SampIntOrig;int32;0;1;3219;3220;Sample interval in microseconds (us) of original field recording.
+bh;NumSampTrc;int32;0;1;3221;3222;Number of samples per data trace. Mandatory for all types of data.
+bh;NumSampTrcOrig;int32;0;1;3223;3224;Number of samples per data trace for original field recording.
+bh;DataFormat;int32;0;1;3225;3226;Data sample format code. 
+bh;EnsemFold;int32;0;1;3227;3228;Ensemble fold - Expected number of data traces per trace ensemble (e.g. the CMP fold). Highly recommended for all types of data.
+bh;TrcSort;int32;0;1;3229;3230;Trace sorting code
+bh;VertSum;int32;0;1;3231;3232;Vertical sum code
+bh;SweepFreqStart;int32;0;1;3233;3234;Sweep frequency at start (Hz).
+bh;SweepFreqEnd;int32;0;1;3235;3236;Sweep frequency at end (Hz).
+bh;SweepLength;int32;0;1;3237;3238;Sweep length (ms).
+bh;SweepType;int32;0;1;3239;3240;Sweep type code.
+bh;SweepTrcNum;int32;0;1;3241;3242;Trace number of sweep channel.
+bh;SweepTrcLen;int32;0;1;3243;3244;Sweep trace length in milliseconds at end.
+bh;SweepTrcTapr;int32;0;1;3245;3246;Sweep trace taper length in milliseconds at end.
+bh;TaprTyp;int32;0;1;3247;3248;Taper type
+bh;CorDataTrc;int32;0;1;3249;3250;Correlated data traces
+bh;BinGainRecov;int32;0;1;3251;3252;Binary gain recovered
+bh;AmpRecovMod;int32;0;1;3253;3254;Amplitude recovery mode
+bh;MeasSys;int32;0;1;3255;3256;Measurement system, 1=Meters, 2=Feet
+bh;ImpPol;int32;0;1;3257;3258;Impulse signal polarity
+bh;VibPol;int32;0;1;3259;3260;Vibratory polarity code
+bh;UnAssigned1;int32;0;0;3261;3500;Unassigned
+bh;SegYRevNum;int32;0;1;3501;3502;SEG Y Format Revision Number
+bh;FxdTrcLenFlag;int32;0;1;3503;3504;Fixed length trace flag
+bh;NumOfExtHdrs;int32;0;1;3505;3506;Number of 3200-Byte Extended Textual File Header records following the Binary Header
+bh;UnAssigned2;int32;0;0;3507;3600;Unassigned
+//End Binary Header;;;;;;;
+//////////;;;;;;;
+//Start Trace Header;;;;;;;
+th;TrcNumLine;int32;0;1;1;4; Trace sequence number within line.
+th;TrcNumReel;int32;0;1;5;8; Trace sequence number within reel.
+th;OrigFldRecNum;int32;0;1;9;12; Original field record number.
+th;TrcSeqNumOrigFld;int32;0;1;13;16; Trace sequence number within original field record.
+th;EnrgySrcPtNum;int32;0;1;17;20; Energy source point number.
+th;CDPEnsemNum;int32;0;1;21;24; CDP ensemble number.
+th;TrcSeqNumEnsem;int32;0;1;25;28; Trace sequence number within CDP ensemble.
+th;TrcIdCode;int32;0;1;29;30; Trace identification code:
+th;NumVertSumTrc;int32;0;1;31;32; Number of vertically summed traces yielding this trace.
+th;NumHoriStckTrc;int32;0;1;33;34; Number of horizontally stacked traced yielding this trace.
+th;DataUse;int32;0;1;35;36; Data use (1 = production, 2 = test).
+th;DistSrcRcvGrp;double;0;1;37;40; Distance from source point to receiver group.
+th;RcvGrpElev;double;0;1;41;44; Receiver group elevation.
+th;SurfElevAtSrc;double;0;1;45;48; Surface elevation at source.
+th;SrcDpthBlowSurf;double;0;1;49;52; Source depth below surface.
+th;DatmElevAtRcvGrp;double;0;1;53;56; Datum elevation at receiver group.
+th;DatmElevAtSrc;double;0;1;57;60; Datum elevation at source.
+th;WaterDpthAtSrcGrp;double;0;1;61;64; Water depth at source.
+th;WaterDpthArRcvGrp;double;0;1;65;68; Water depth at receiver group.
+th;ScalElevDepth;int32;0;1;69;70; Scalar for elevations and depths (+ = multiplier, - = divisor).
+th;ScalCoord;int32;0;1;71;72; Scalar for coordinates (+ = multiplier, - = divisor).
+th;XsrcCoord;double;0;1;73;76; X source coordinate.
+th;YsrcCoord;double;0;1;77;80; Y source coordinate.
+th;XrcvGrpCoord;double;0;1;81;84; X receiver group coordinate.
+th;YrcvGrpCoord;double;0;1;85;88; Y receiver group coordinate.
+th;CoordUnits;int32;0;1;89;90; Coordinate units (1 = length in meters or feet, 2 = arc seconds).
+th;WeathrVelocity;int32;0;1;91;92; Weathering velocity.
+th;SubWeathrVelocity;int32;0;1;93;94; Sub-weathering velocity.
+th;UpHoleTimeAtSrc;int32;0;1;95;96; Uphole time at source.
+th;UpHoleTimeAtRcvGrp;int32;0;1;97;98; Uphole time at receiver group.
+th;SrcStaticCorrec;int32;0;1;99;100; Source static correction.
+th;RcvGrpStaticCorrec;int32;0;1;101;102; Receiver group static correction.
+th;TotalStaticAppl;int32;0;1;103;104; Total static applied.
+th;LagTimeHdrTimeBrk;int32;0;1;105;106; Lag time between end of header and time break in milliseconds.
+th;LagTimeTimBrkShot;int32;0;1;107;108; Lag time between time break and shot in milliseconds.
+th;LagTimeShtRec;int32;0;1;109;110; Lag time between shot and recording start in milliseconds.
+th;StrtMutTime;int32;0;1;111;112; Start of mute time.
+th;EndMutTime;int32;0;1;113;114; End of mute time.
+th;NumSampl;int32;0;1;115;116; Number of samples in this trace.
+th;SamplInt;int32;0;1;117;118; Sample interval of this trace in microseconds.
+th;FldInstruGainCode;int32;0;1;119;120; Field instrument gain type code:
+th;InstruGainConst;int32;0;1;121;122; Instrument gain constant.
+th;InstruEarlyGain;int32;0;1;123;124; Instrument early gain in decibels.
+th;Correlated;int32;0;1;125;126; Correlated (1 = no, 2 = yes).
+th;SweepFreqStrt;int32;0;1;127;128; Sweep frequency at start.
+th;SweepFreqEnd;int32;0;1;129;130; Sweep frequency at end.
+th;SweepLength;int32;0;1;131;132; Sweep length in milliseconds.
+th;SweepTypeCode;int32;0;1;133;134; Sweep type code:
+th;SweepTaprLenStrt;int32;0;1;135;136; Sweep taper trace length at start in milliseconds.
+th;SweepTaprLenEnd;int32;0;1;137;138; Sweep taper trace length at end in milliseconds.
+th;TaprTypeCode;int32;0;1;139;140; Taper type code:
+th;AliasFiltFreq;int32;0;1;141;142; Alias filter frequency.
+th;AliasFiltSlope;int32;0;1;143;144; Alias filter slope.
+th;NotchFiltFreq;int32;0;1;145;146; Notch filter frequency.
+th;NotchFiltSlope;int32;0;1;147;148; Notch filter slope.
+th;LowCutFreq;int32;0;1;149;150; Low cut frequency.
+th;HighCutFreq;int32;0;1;151;152; High cut frequency.
+th;LowCutSlope;int32;0;1;153;154; Low cut slope.
+th;HighCutSlope;int32;0;1;155;156; High cut slope.
+th;YearDataRec;int32;0;1;157;158; Year data recorded.
+th;DayOfYear;int32;0;1;159;160; Day of year.
+th;HourOfDay;int32;0;1;161;162; Hour of day (24-hour clock).
+th;MinutOfHour;int32;0;1;163;164; Minute of hour.
+th;SeconOfMinut;int32;0;1;165;166; Second of minute.
+th;TimeBasis;int32;0;1;167;168; Time basis (1 = local, 2 = GMT, 3 = other).
+th;TrcWeightFact;int32;0;1;169;170; Trace weighting factor for fixed-point format data.
+th;GeoGrpNumRSPO;int32;0;0;171;172; Geophone group number of roll switch position one.
+th;GeoGrpNumFTOFR;int32;0;0;173;174; Geophone group number of first trace of original field record.
+th;GeoGrpNumLTOFR;int32;0;0;175;176; Geophone group number of last trace of original field record.
+th;GapSize;int32;0;0;177;178; Gap size (total number of groups dropped).
+th;OverTravel;int32;0;0;179;180; Overtravel associated with taper (1 = down/behind, 2 = up/ahead).
+th;TransitTime;int32;0;1;181;184; Transit Time for the VSP data. 
+th;Unassigned;int32;0;0;185;240; Unassigned (for optional information).
+//End Trace Header;;;;;;;
